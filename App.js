@@ -1,12 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import Animated from 'react-native-reanimated';
+import { PanGestureHandler } from 'react-native-gesture-handler';
+import {GestureHandlerRootView} from 'react-native-gesture-handler'
+const SIZE= 100.00;
 
 export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>Hello World</Text>
-      <StatusBar style="auto" />
+      <GestureHandlerRootView>
+      <PanGestureHandler>
+          <Animated.View style={styles.square}/>
+      </PanGestureHandler>
+      </GestureHandlerRootView>
     </View>
   );
 }
@@ -18,4 +24,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  square:{
+    height:SIZE,
+    width:SIZE,
+    backgroundColor:'rgba(0,0,256,0.5)',
+    borderRadius:20,
+  }
 });
